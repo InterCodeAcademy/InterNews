@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<?php
+session_start();
+if(isset($_SESSION['user_id'])){
+	header("index.php");
+}
+require 'database.php';
+if(!empty($_POST['email']) && ($_POST['password'])){
+	$records= $conn->prepare('SELECT id, email, password FROM users WHERE email = :email')
+	$records->bindParam(':email', $_POST['email']);
+	$records->execute();
+	$results = $records->fetch(PDO::FETCH_ASSOC);
+
+	$message '';	
+
+	if(cout($results) > 0 && password_verify($_POST['password'], $results['password'])){
+		$_SESSION['user_id']= $results['id'];
+		header("Location: index.php");
+	} else{
+		$message= 'Sorry, those credential dont match';
+	}
+}
+?>	
 <html>
 
 <head>
@@ -21,5 +44,8 @@
 		<input type="submit">
 
 	</form>
+	<?php if(!empty($message)){ ?>
+		<p><?php= $message ?></p>
+	<?php } ?>
 </body>
 </html>
