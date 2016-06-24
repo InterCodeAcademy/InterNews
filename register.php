@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <?php
-require 'database,php';
-if(!empty($_POST['email']) && ($_POST['password'])):
+require 'database.php';
+$message '';
+if(!empty($_POST['email']) && ($_POST['password'])){
 	//Enter the new user in the database
 	$sql="INSERT INTO users (email, password) VALUES (:email, :password)";
 	$stmt= $conn->prepare($sql);
@@ -8,8 +10,13 @@ if(!empty($_POST['email']) && ($_POST['password'])):
 	$stmt->bindParam(':email', $POST['email']);
 	$stmt->bindParam(':password', $POST['password']);
 	
-endif;
-?>
+	if($stmt->execute()){
+		$message= 'Successfully create new user';
+	}else:
+		$message= 'Sorry there must have been an issue creating your account';
+	}
+}
+?>	
 <html>
 <head>
 	<title>Register Below</title>
@@ -18,20 +25,27 @@ endif;
 </head>
 <body>
 	<div class="header">
-		<a href="index.php">INTER</a>
+		<a href="index.php">INTER NOTICIAS</a>
 	</div>
 	
 	<h1>Register</h1>
-	
-	<span> or <a href="login.php">Login here</a></span>
+
+	<div class="log-reg">	
+		<span> or <a href="login.php">login here</a></span>
+	</div>
 	
 	<form action="register.php" method="POST">
+		<input type="inline-text" placeholder="First name" name="first name">
+		<input type="inline-text" placeholder="Last name" name="Last name">
 		<input type="text" placeholder="Enter your email" name="email">
 		<input type="password" placeholder="and password" name="password">
 		<input type="password" placeholder="confirm password" name="password">
 		<input type="submit">
-
 	</form>
+	
+	<?php if(!empty($message)){ ?>
+		<p><?= $message ?></p>
+	<?php } ?>
 	
 </body>
 </html>
