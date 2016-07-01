@@ -20,8 +20,8 @@
 		<li class="button"><a href="#">  Inter TV  </a></li>
 		<li class="button"><a href="#">Top</a></li>
 		<li class="button"><a href="#">Obras</a><a href="#"></a></li>
-	    <li class="search">
-		   <input id="search-bar" name="search" type="text" placeholder="Search..."><!-- input id="search-botton" name="search_submit" type="submit"img src=""  --></li>
+	    <li class="searchbox">
+		   <input type="text" name="search" placeholder=""></li>
            </ul>
            </div>
            </div>
