@@ -105,10 +105,10 @@ a:visited {
 	color:#F3F3F3;
 	}
 .nav li{
-	text-decoration:none;
+	text-decoration: none;
 	position: relative;
 	float: left;
-	font-family: Gentium Book Basic, Gentium Basic;
+	font-family: "Gentium Book Basic", "Gentium Basic";
 	text-align: center;
 	display: block;
 	height: 50px;
@@ -125,26 +125,22 @@ a:visited {
 	color:#F3F3F3;
 }
 
-search{
-	position:relative;
-	float:right;
-	margin-top:10.5px;
-	}
-.search input[type=text]{
-	width: 100px;
-	height: 20px;
-	padding-left: 10px;
-	margin-left: 10px;
-	padding-right: 4px;
+.searchbox input[type=text] {
+	width: 90px;
 	outline: none;
 	border: none;
-	font-family: Verdana, Geneva, sans-serif;
-	background-color: #CCCCCC;
-	}
-.search a:{
-	
+	border-radius: 4px;
+	background-image: url(../imagenes/698627-icon-111-search-128.png);
+	background-repeat: no-repeat;
+	-webkit-transition: width 0.4s ease-in-out;
+	padding: 12px 10px 12px 25px;
+	transition: width 0.4s ease-in-out;
+	height: 3px;
+	background-size: contain;
+	margin-top: 11.5px;
+	background-color: #F3F3F3;
 }
-.searchbox{
-	width: 100px;
-	background-color: #F0A0A0;
+
+.searchbox input[type=text]:focus {
+    width: 70%;
 }
