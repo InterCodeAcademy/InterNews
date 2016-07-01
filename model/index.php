@@ -2,7 +2,7 @@
 $GETUSERS = "SELECT * FROM `usuarios`";
 $GETNEWSLIST = "SELECT * FROM `noticias`";
 
-function SQLQuery($query, $get){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE NECESITAN)
+function SQLQuery($query){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE NECESITAN)
     $server = "localhost";
     $usuario = "root";
     $password ="";
@@ -26,6 +26,12 @@ function SQLQuery($query, $get){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE 
 }
 
 
+
+
+
+
+
+
 function getNews(){
     
             $articleGroup = array();
@@ -36,7 +42,7 @@ function getNews(){
         foreach($results as $arrays){
     
         
-                        $json = 'model/JsonDescriptions/'.$arrays['descJson'].'.json';
+                        $json = 'model/Descriptions/'.$arrays['descJson'].'.json';
                         $string = file_get_contents($json);
 
                         $jsonIterator = new RecursiveIteratorIterator(new RecursiveArrayIterator(json_decode($string, TRUE)),
@@ -45,7 +51,7 @@ function getNews(){
             foreach ($jsonIterator as $key => $val) {
                 if($key == "img"){
         
-                        array_push($singleArticle ,"model/JsonDescriptions/thumb/$val");
+                        array_push($singleArticle ,"model/Descriptions/thumb/$val");
                 
                 }else{
                         array_push($singleArticle,$val);
@@ -62,6 +68,14 @@ function getNews(){
 
 }
 
+
+
+
+
+
+
+
+
 function getArticle($noticiaURL){
      $articleGroup = array();
             $singleArticle = array();
@@ -69,7 +83,7 @@ function getArticle($noticiaURL){
           
     
         
-                        $json = 'model/JsonNoticias/'.$noticiaURL.'.json';
+                        $json = 'model/Noticias/'.$noticiaURL.'.json';
                         $string = file_get_contents($json);
 
                         $jsonIterator = new RecursiveIteratorIterator(new RecursiveArrayIterator(json_decode($string, TRUE)),
@@ -78,7 +92,7 @@ function getArticle($noticiaURL){
             foreach ($jsonIterator as $key => $val) {
                 if($key == "img"){
         
-                        array_push($singleArticle ,"model/JsonNoticias/img/$val");
+                        array_push($singleArticle ,"model/Noticias/img/$val");
                 
                 }else{
                         array_push($singleArticle,$val);
