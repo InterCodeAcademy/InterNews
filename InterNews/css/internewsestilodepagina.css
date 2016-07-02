@@ -1,4 +1,6 @@
-@charset "utf-8";
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+
+}
 body {
 	background-color: #F3F3F3;
 	padding: 0;
@@ -8,6 +10,7 @@ body {
 	font-size: medium;
 	line-height: 1.4;
 }
+
 
 /* ~~ Element/tag selectors ~~ */
 ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
