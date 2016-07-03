@@ -41,8 +41,8 @@
  </div>
  <div class="container">  
      <div class="content">
-    <h2>Titulo de noticia</h2>
-    <p>Cuerpo de la noticia</p>
+    <h2><a href="#"><strong>Titulo de noticia</strong></a></h2>
+    <p>Cuerpo de la noticia </p>
     <!-- end .content --></div>
   <div class="footer">
   </div>
