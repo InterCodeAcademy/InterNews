@@ -10,17 +10,17 @@
 </head>
 
 <body>  
-<div class="propic"><img class="img-circle" src="" />
-</div>
-  
+<div class="propic">
+<img class="img-circle" src=""/>
+
 <div class="dropdown"><button class="dropbtn">Perfil</button>
   <div class="dropdown-content">
     <a href="#">Ver Perfil</a>
     <a href="#">Editar Perfil</a>
-    <a href="#">Cerrar Sesión</a>
+    <a href="#">Cerrar Sesion</a>
   </div>
 </div> 
-
+</div>
 </div>
 
 <h1><img src="../imagenes/Header.png" width="80%"/></h1>
@@ -41,8 +41,8 @@
  </div>
  <div class="container">  
      <div class="content">
-    <h1>Titulo de la Noticia</h1>
-    <p>Noticiaaaaaaa</p>
+    <h2>Titulo de noticia</h2>
+    <p>Cuerpo de la noticia</p>
     <!-- end .content --></div>
   <div class="footer">
   </div>
