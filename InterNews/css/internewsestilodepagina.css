@@ -181,7 +181,6 @@ h1 {
 .nav{
 	list-style:none;
 	color:#F3F3F3;
-
 	}
 .nav li{
 	text-decoration: none;
@@ -204,6 +203,7 @@ h1 {
 }
 .nav a{
 	color:#F3F3F3;
+	display: block;
 }
 
 .searchbox input[type=text] {
