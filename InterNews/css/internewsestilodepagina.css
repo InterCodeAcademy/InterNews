@@ -1,3 +1,10 @@
+@font-face{
+	font-family:News Gothic Condensed;
+	src:url(Newsgothiccondensed.woff)
+}
+@font-face{
+	font-family:News Gothic Std Bold;
+	src:url(NewsGothicStdBold.woff)}
 body {
 	background-color: #F3F3F3;
 	padding: 0;
@@ -19,7 +26,7 @@ h2, h3, h4, h5, h6 {
 	padding-left: 15px;
 	background-color: #F3F3F3;
 	font-size: 42px;
-	font-family: "News Gothic Std";
+	font-family:News Gothic Std Bold;
 	font-weight: normal;
 }
 h2 a{
@@ -31,7 +38,7 @@ h2 a:hover{
 	
 p{
 	font-size: 22px;
-	font-family: "News Gothic Condensed";
+	font-family:News Gothic Condensed;
 	border-bottom:thin
  #333
 }
