@@ -459,4 +459,4 @@ h1 {
 .searchbox input[type=text]:focus {
     width: 70%;
 }
-
+>>>>>>> origin/master:InterNews/css/internewsestilodepagina.css
