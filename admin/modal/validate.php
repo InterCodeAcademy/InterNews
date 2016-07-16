@@ -1,5 +1,5 @@
 <?php
-                    include('../model/index.php');
+                    include('../../model/index.php');
                     $get = $GETUSERS." WHERE `username`='".$_GET['username']."'";
                     $compare = array();
                     $compare = SQLQuery($get);

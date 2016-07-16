@@ -88,7 +88,7 @@ if(user.value == null || user.value == "" || pass.value == null || pass.value ==
             }
         };
        
-        xmlhttp.open("GET","validate.php?username="+user.value.trim()+"&&pass="+pass.value.trim(),true);
+        xmlhttp.open("GET","modal/validate.php?username="+user.value.trim()+"&&pass="+pass.value.trim(),true);
         xmlhttp.send();
     
 }

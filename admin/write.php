@@ -19,8 +19,8 @@ session_start();
 
     <!-- Custom styles for this template -->
     <link href="../view/InterNews/css/signin.css" rel="stylesheet">
-    <script src="jquery.min.js"></script>
-    <script src="modal.js"></script>
+    <script src="extras/jquery.min.js"></script>
+    <script src="extras/modal.js"></script>
   </head>
 
   <body>
@@ -29,7 +29,7 @@ session_start();
 
 <?php
 if(isset($_SESSION['USER'])){
-                        echo '<a href="logout.php">Log Out</a>';
+                        echo '<a href="modal/logout.php">Log Out</a>';
                         echo '<br/><img src="../model/Perfiles/'.$_SESSION['USER'].'/pp.jpg" height="100" width="100"/> <br/><br/>';
                         
 
@@ -119,7 +119,8 @@ function publishArticle(){
 
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                  
+                     
+                // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
                 window.location = "http://localhost/InterNews/admin/Dashboard";
             }
         };
@@ -127,9 +128,9 @@ function publishArticle(){
          var bod = body.value;
          bod = bod.replace(/\r?\n/g, '<br />');
          <?php 
-         $_SESSION['ALLOW'] = 'dEv*3LZEN(3p4MOKUxh4q)yn5ardOq4PkANy'
+         $_SESSION['ALLOW'] = 'dEv*3LZEN(3p4MOKUxh4q)yn5ardOq4PkANy';
          ?>
-        xmlhttp.open("GET","publishArticle.php?author="+author.value+"&&title="+tit+"&&body="+bod,true);
+        xmlhttp.open("GET","modal/publishArticle.php?author="+author.value+"&&title="+tit+"&&body="+bod,true);
         xmlhttp.send();
     
 }
@@ -143,7 +144,7 @@ function publishArticle(){
 $('#myModal').on('shown.bs.modal', function () {
       document.getElementById("ops").style.display = 'none';   
  
-  $('#myInput').focus()
+  $('#myInput').focus();
 })
 </script>
   </body>

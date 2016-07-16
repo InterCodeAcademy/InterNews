@@ -23,9 +23,8 @@ if(isset($_SESSION['USER']) && isset($_SESSION['ALLOW'])){
         				$randomString .= $characters[rand(0, $charactersLength - 1)];
     				}
      				$url = $randomString.'.json';
-
-                    file_put_contents($url,json_encode($array));
-                    $_SESSION['ALLOW'] = 'SHWTHD';
+                            file_put_contents($url,json_encode($array));
+                            $_SESSION['ALLOW'] = 'SHWTHD';
 
 	}else{
 		echo ' <audio autoplay>
