@@ -32,36 +32,26 @@ if(isset($_SESSION['USER'])){
                         echo '<a href="modal/logout.php">Log Out</a>';
                         echo '<br/><img src="../model/Perfiles/'.$_SESSION['USER'].'/pp.jpg" height="100" width="100"/> <br/><br/>';
                         
+                            echo 
+                            '<form class="form-group">
+                                
+                                <input type="text" value="'.$_SESSION['USER'].'" id="author" style="display:none;"/>
+                                
+                                <input type="text" name="title" id="title" class="form-control" placeholder="Titulo" required autofocus>
+                                
+                                <br/>
+                                <textarea placeholder="Descripcion o Entradilla" class="form-control" id="lead" rows="5" name="text" required></textarea>
+                                
 
-                                    echo 
-                                    '<form class="form-group">
-                                    <input type="text" value="'.$_SESSION['USER'].'" id="author" style="display:none;"/>
-                                    <input type="text" name="title" id="title" class="form-control" placeholder="Titulo" required autofocus>
-                                    <br/>
-                                    <textarea class="form-control" id="body" rows="20" name="text" required></textarea>
-                                    <br/>
-                                   <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">Publicar</button>
-                                    </form>
+                                <br/>
+                                <textarea placeholder="Cuerpo" class="form-control" id="body" rows="20" name="text" required></textarea>
+                                
+                                <br/>
+                                <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">Publicar</button>
+                            </form>
                                     
                                     <div id="txtHint"></div>';
-                                  
-/*                            echo'<div class="alert alert-success" role="alert"><h3>Noticia Creada!</h3></div>';
-                            $array = array(
-                                "Titulo"=>$_GET['title'],
-                                "img"=>"none",
-                                "Cuerpo"=>$_GET['text']
-
-
-                            );
-                            file_put_contents('hola.json',json_encode($array));
-    
-//*/
-
-    
-        
-
-
-    
+                                     
 }else{
     
 header("Location: http://localhost/InterNews/admin/");
@@ -103,8 +93,9 @@ function publishArticle(){
     
     var title = document.getElementById("title");
     var body = document.getElementById("body");
+    var lead = document.getElementById("lead");
     var author = document.getElementById("author");  
-       if(title.value == null || title.value == "" || body.value == null || body.value == ""){
+       if(title.value == null || title.value == "" || body.value == null || body.value == "" || lead.value == null || lead.value == ""){
    document.getElementById("ops").style.display='block';
    return null ;
 }else{
@@ -120,17 +111,20 @@ function publishArticle(){
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                      
-                // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                window.location = "http://localhost/InterNews/admin/Dashboard";
+                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                //window.location = "http://localhost/InterNews/admin/Dashboard";
             }
         };
-         var tit = title.value;
-         var bod = body.value;
-         bod = bod.replace(/\r?\n/g, '<br />');
+         var titleValue = title.value;
+         var bodyValue = body.value;
+         var leadValue = lead.value;
+         bodyValue = bodyValue.replace(/\r?\n/g, '<br />'); 
+         leadValue = leadValue.replace(/\r?\n/g, '<br />');
+         
          <?php 
          $_SESSION['ALLOW'] = 'dEv*3LZEN(3p4MOKUxh4q)yn5ardOq4PkANy';
          ?>
-        xmlhttp.open("GET","modal/publishArticle.php?author="+author.value+"&&title="+tit+"&&body="+bod,true);
+        xmlhttp.open("GET","modal/publishArticle.php?author="+author.value+"&&title="+titleValue+"&&body="+bodyValue+"&&lead="+leadValue,true);
         xmlhttp.send();
     
 }

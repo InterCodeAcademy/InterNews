@@ -27,6 +27,20 @@ function SQLQuery($query){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE NECESI
 
 
 
+function Insert($query){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE NECESITAN)
+    $server = "localhost";
+    $usuario = "root";
+    $password ="";
+    $db = "inter_news";
+    $conn =  mysqli_connect($server,$usuario,$password,$db) or die("Error connecting");
+    $stmt = mysqli_query($conn,$query);
+       echo $query;
+     
+    mysqli_close($conn);
+
+}
+
+
 
 
 
