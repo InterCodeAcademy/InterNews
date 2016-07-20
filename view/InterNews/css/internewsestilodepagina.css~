@@ -91,6 +91,7 @@ h1 {
 	border-bottom:thin solid
 	#333;
 	margin-right:14.7%
+	background-color:white;
 	
 }
 
@@ -459,4 +460,7 @@ h1 {
 .searchbox input[type=text]:focus {
     width: 70%;
 }
->>>>>>> origin/master:InterNews/css/internewsestilodepagina.css
+p{
+color:black;
+}
+

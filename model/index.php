@@ -71,9 +71,14 @@ function getNews(){
                         array_push($singleArticle,$val);
                 }
         
-   
+             
     
-            }array_push($articleGroup,$singleArticle);
+            }
+            
+            array_push($singleArticle, $arrays['autor']);
+            array_push($singleArticle, $arrays['fecha']);
+            array_push($articleGroup,$singleArticle);
+                
                 unset($singleArticle);  
                 $singleArticle = array();
                         //segundo foreach

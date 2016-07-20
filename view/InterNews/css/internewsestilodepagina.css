@@ -8,7 +8,7 @@
     src: url(std.otf);
 }
 body {
-	background-color: #F3F3F3;
+	background-color: #F5F5F5;
 	padding: 0;
 	color: #000;
     margin-left: 14.7%;
@@ -68,7 +68,7 @@ a:visited {
 
 /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
 .container {
-	background-color: #F3F3F3; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+	background-color: #F5F5F5; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
 	margin-top: 0px;
 	margin-right: auto;
 	margin-bottom: 0;
@@ -90,7 +90,9 @@ h1 {
 	padding: 10px 0;
 	border-bottom:thin solid
 	#333;
-	margin-right:14.7%
+	margin-right:14.7%;
+	background-color:white;
+	
 	
 }
 
@@ -230,233 +232,32 @@ h1 {
 .searchbox input[type=text]:focus {
     width: 70%;
 }
-=======
-@font-face{
-	font-family:News Gothic Condensed;
-	src:url(Newsgothiccondensed.woff)
-}
-@font-face{
-	font-family:News Gothic Std Bold;
-	src:url(NewsGothicStdBold.woff)}
-body {
-	background-color: #F3F3F3;
-	padding: 0;
-	color: #000;
-    margin-left: 14.7%;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: medium;
-	line-height: 1.4;
-}
 
-/* ~~ Element/tag selectors ~~ */
-ul, ol, dl { 
-	padding: 0;
-	margin: 0;
-}
-h2, h3, h4, h5, h6 {
-	margin-top: 10px;
-	padding-right: 15px;
-	padding-left: 15px;
-	background-color: #F3F3F3;
-	font-size: 42px;
-	font-family:News Gothic Std Bold;
-	font-weight: normal;
-}
-h2 a{
-	color:#000
-}
-h2 a:hover{
-	color: #D02020
-}
-	
 p{
-	font-size: 22px;
-	font-family:News Gothic Condensed;
-	border-bottom:thin
- #333
+color:black;
 }
-p a:link{
-	color: #E43434;
-	text-decoration: none;
+.content h2 {
+	background-color: white;
+	padding-left: 25px;
+	margin-bottom: 12px;
 }
-p a:hover{
-	color: #DE2929
+.content p{
+	padding: 25px;
+	padding-top: 0px;
 }
-a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
-	border: none;
-}
-
-/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
-a:link {
-	text-decoration:none
-	 /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
-}
-a:visited {
-	text-decoration: none;
-}
-
-
-/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
-.container {
-	background-color: #F3F3F3; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+.content  {
+	padding-top: 0px;
 	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0;
-	margin-left: 0px;
-	padding-top: 50px;
+	padding-bottom: 0px;
+	border-bottom: 5px solid #e9e9e9;
 }
-
-/* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
-h1 {
-	margin-left: 40px;
-}
-
-/* ~~ This is the layout information. ~~ 
-
-1) Padding is only placed on the top and/or bottom of the div. The elements within this div have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
-
-*/
-.content {
-	padding: 10px 0;
-	border-bottom:thin solid
-	#333;
-	margin-right:14.7%
-	
-}
-
-/* ~~ This grouped selector gives the lists in the .content area space ~~ */
-.content ul, .content ol { 
-	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
-}
-
-/* ~~ The footer ~~ */
-.footer {
-	padding: 10px 0;
-	background-color: #F3F3F3;
-}
-
-.propic{
-	clear: both;
-	overflow: visible;
-	height: 10px;
-}
-.propic > img.img-circle {
-	width: 80px;
-	height: 80px;
-	border-radius: 49px;
-	overflow: visible;
-	float: right;
-	
-}
-.dropdown {
-	z-index:10000;
-	position: relative;
-	display: inline-block;
-	float:right
-	top: 98px;
-	width: 0px;
-	height: 6px;
-	top: 70px;
-	float: right;
-	left: 17px;
-}
-
-.dropbtn {
-	background-color: #D6D6D6;
-	color: white;
+.post {
+	background-color: white;
 	font-size: 14px;
-	cursor: pointer;
-	border-radius: 15px;
-	border: none;
-	padding: 1px 8px;
-	left: 842px;
-	top: 77px;
-	font-family: "Segoe UI",Arial,sans-serif;
+	color: black;
+	padding-left: 25px;
 }
-
-
-.dropdown-content {
-	overflow: visible;
-	display: none;
-	position: relative;
-	right: 35px;
-	background-color: #f9f9f9;
-	min-width: 100px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+hr {
+	margin-left: 25px;
+	margin-right: 25px;
 }
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 10px;
-    text-decoration: none;
-    display: block;
-	font-size:12px;
-	text-align:center
-	font-family: "Segoe UI",Arial,sans-serif;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.container .content h1 {
-	font-family: Verdana, Geneva, sans-serif;
-}
-#container{
-	color: #F3F3F3;
-	text-decoration: none;
-	margin-left: 30px;
-	padding-bottom: 80px;
-	}
-.nav{
-	list-style:none;
-	color:#F3F3F3;
-	}
-.nav li{
-	text-decoration: none;
-	position: relative;
-	float: left;
-	font-family: "Segoe UI",Arial,sans-serif;
-	text-align: center;
-	display: block;
-	height: 50px;
-	width: 150px;
-	line-height: 50px;
-	border-right: 1px solid rgba(51,51,51,1);
-	background-color: #EF4545;
-	font-style: inherit;
-	font-weight: 550;
-}
- 
-.nav li:hover {
-	background-color: #DE2929;
-}
-.nav a{
-	color:#F3F3F3;
-	display: block;
-}
-
-.searchbox input[type=text] {
-	width: 90px;
-	outline: none;
-	border: none;
-	border-radius: 4px;
-	background-image: url(../imagenes/698627-icon-111-search-128.png);
-	background-repeat: no-repeat;
-	-webkit-transition: width 0.4s ease-in-out;
-	padding: 12px 10px 12px 25px;
-	transition: width 0.4s ease-in-out;
-	height: 3px;
-	background-size: contain;
-	margin-top: 11.5px;
-	background-color: #F3F3F3;
-	font-family:"Segoe UI",Arial,sans-serif;
-}
-
-.searchbox input[type=text]:focus {
-    width: 70%;
-}
-
