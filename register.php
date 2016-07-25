@@ -12,6 +12,10 @@ if(!empty($_POST['email']) && ($_POST['password'])){
 	
 	if($stmt->execute()){
 		$message= 'Successfully create new user';
+
+
+
+
 	}else:
 		$message= 'Sorry there must have been an issue creating your account';
 	}

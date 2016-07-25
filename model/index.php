@@ -56,7 +56,7 @@ function getNews(){
         foreach($results as $arrays){
     
         
-                        $json = 'model/Descriptions/'.$arrays['descJson'].'.json';
+                        $json = 'model/Descriptions/'.$arrays['descJson'];
                         $string = file_get_contents($json);
 
                         $jsonIterator = new RecursiveIteratorIterator(new RecursiveArrayIterator(json_decode($string, TRUE)),
