@@ -111,8 +111,8 @@ function publishArticle(){
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                      
-                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                //window.location = "http://localhost/InterNews/admin/Dashboard";
+                //document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                window.location = "http://localhost/InterNews/admin/Dashboard";
             }
         };
          var titleValue = title.value;
