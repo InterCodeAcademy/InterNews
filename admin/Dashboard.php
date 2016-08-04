@@ -6,15 +6,14 @@ if(isset($_SESSION['USER'])){
                     echo '<a href="write">Write</a>';
                     
 
-}
-                        
                         
                         
 }else{
     
     header("Location: http://localhost/InterNews/admin/");
 exit();
-     function Titulo($query){ // Llamar SQLQuery("COMANDO SQL", DATOS QUE SE NECESITAN)
+}
+     
     $server = "localhost";
     $usuario = "root";
     $password ="";
@@ -23,5 +22,7 @@ exit();
     $results =  SQLQuery("SELECT * FROM `noticias`","Titulos");
      
     mysqli_close($conn);
-}
+
+
+
 ?>
