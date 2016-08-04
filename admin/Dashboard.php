@@ -18,7 +18,7 @@ exit();
     $usuario = "root";
     $password ="";
     $db = "inter_news";
-    $conn =  mysqli_connect($server,$usuario,$password,$db) or die("Error connecting");
+    $conn =  mysql_connect($server,$usuario,$password,$db) or die("Error connecting");
     $results =  SQLQuery("SELECT * FROM `noticias`","Titulos");
      
     mysqli_close($conn);
