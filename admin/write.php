@@ -21,6 +21,9 @@ session_start();
     <link href="../view/InterNews/css/signin.css" rel="stylesheet">
     <script src="extras/jquery.min.js"></script>
     <script src="extras/modal.js"></script>
+    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+      
   </head>
 
   <body>
@@ -29,32 +32,62 @@ session_start();
 
 <?php
 if(isset($_SESSION['USER'])){
-                        echo '<a href="modal/logout.php">Log Out</a>';
-                        echo '<br/><img src="../model/Perfiles/'.$_SESSION['USER'].'/pp.jpg" height="100" width="100"/> <br/><br/>';
+       if(isset($_POST['submit'])){
+            if($_SESSION['PUBLISH']){
+              
+                include('upload.php');
+             if($uploadOk == 0){
+              echo '<a href="modal/logout.php">Log Out</a>';
+        echo '<br/><img src="../model/Perfiles/'.$_SESSION['USER'].'/pp.jpg" height="100" width="100"/> <br/><br/>';
                         
-                            echo 
-                            '<form class="form-group">
-                                
-                                <input type="text" value="'.$_SESSION['USER'].'" id="author" style="display:none;"/>
-                                
-                                <input type="text" name="title" id="title" class="form-control" placeholder="Titulo" required autofocus>
-                                
-                                <br/>
-                                <textarea placeholder="Descripcion o Entradilla" class="form-control" id="lead" rows="5" name="text" required></textarea>
-                                
+        echo' <form class="form-group"  id="uploadForm" action="write.php" method="post" enctype="multipart/form-data">
 
-                                <br/>
-                                <textarea placeholder="Cuerpo" class="form-control" id="body" rows="20" name="text" required></textarea>
-                                
-                                <br/>
-                                <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">Publicar</button>
-                            </form>
+
+<div id="uploadFormLayer">
+ <input type="file" name="fileToUpload" id="fileToUpload" required>
+ <br/>
+<input type="text" value="'.$_SESSION['USER'].'" id="author" name="author" style="display:none;"/>
+
+<input type="text" name="title" value="'.$_POST['title'].'" id="title" class="form-control" placeholder="Titulo" required autofocus>
+<br/>
+<textarea placeholder="Descripcion o Entradilla" class="form-control" id="lead" rows="5" name="lead" required>'.$_POST['lead'].'</textarea>
+<br/>
+<textarea placeholder="Cuerpo"  class="form-control" id="body" rows="20" name="body" required>'.$_POST['body'].'</textarea>
+<br/>
+<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">Publicar</button>
+                </form>
                                     
-                                    <div id="txtHint"></div>';
+                <div id="txtHint"></div>';
                                      
-}else{
+             }else{
+                include('modal/publishArticle.php');
+            }}
+        }else{
+        echo '<a href="modal/logout.php">Log Out</a>';
+        echo '<br/><img src="../model/Perfiles/'.$_SESSION['USER'].'/pp.jpg" height="100" width="100"/> <br/><br/>';
+                        
+        echo' <form class="form-group"  id="uploadForm" action="write.php" method="post" enctype="multipart/form-data">
+
+<div id="targetLayer">No Image</div>
+<div id="uploadFormLayer">
+ <input type="file" name="fileToUpload" id="fileToUpload">
+ <br/>
+<input type="text" value="'.$_SESSION['USER'].'" id="author" name="author" style="display:none;"/>
+
+<input type="text" name="title" id="title" class="form-control" placeholder="Titulo" required autofocus>
+<br/>
+<textarea placeholder="Descripcion o Entradilla" class="form-control" id="lead" rows="5" name="lead" required></textarea>
+<br/>
+<textarea placeholder="Cuerpo" class="form-control" id="body" rows="20" name="body" required></textarea>
+<br/>
+<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal">Publicar</button>
+                </form>
+                                    
+                <div id="txtHint"></div>';
+                                     
+       }}else{
     
-header("Location: http://localhost/InterNews/admin/");
+//header("Location: http://localhost/InterNews/admin/");
 exit();
 
 }
@@ -74,8 +107,8 @@ exit();
             <div id="ops" class="alert alert-warning alert-dismissible" role="alert" style="display: inline-block;">
             <strong>Ops!</strong> Te falto algo ; __ ;
             </div>
-         
-         <input type="button" value="Zi" class="btn btn-warning" onclick="publishArticle()"/>
+    
+         <input type="submit" name="submit" value="Zi" class="btn btn-warning" onclick="publishArticle()"/>
         <button type="button" class="btn btn-default" data-dismiss="modal">No, me achique</button>
       </div>
    
@@ -83,64 +116,15 @@ exit();
   </div>
 </div>
 
-<script>
- window.onload = function(){
-      document.getElementById("ops").style.display = 'none';   
-    
-         
-     }
-function publishArticle(){
-    
-    var title = document.getElementById("title");
-    var body = document.getElementById("body");
-    var lead = document.getElementById("lead");
-    var author = document.getElementById("author");  
-       if(title.value == null || title.value == "" || body.value == null || body.value == "" || lead.value == null || lead.value == ""){
-   document.getElementById("ops").style.display='block';
-   return null ;
-}else{
-    if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
- 
 
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                     
-                //document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                window.location = "http://localhost/InterNews/admin/Dashboard";
-            }
-        };
-         var titleValue = title.value;
-         var bodyValue = body.value;
-         var leadValue = lead.value;
-         bodyValue = bodyValue.replace(/\r?\n/g, '<br />'); 
-         leadValue = leadValue.replace(/\r?\n/g, '<br />');
-         
-         <?php 
-         $_SESSION['ALLOW'] = 'dEv*3LZEN(3p4MOKUxh4q)yn5ardOq4PkANy';
-         ?>
-        xmlhttp.open("GET","modal/publishArticle.php?author="+author.value+"&&title="+titleValue+"&&body="+bodyValue+"&&lead="+leadValue,true);
-        xmlhttp.send();
+<scrip>
     
-}
-}
+    function publishArticle() {
+    s
+    
+    }
+        </scrip>
 
-    
-
-</script>
-<script type="text/javascript">
-    
-$('#myModal').on('shown.bs.modal', function () {
-      document.getElementById("ops").style.display = 'none';   
- 
-  $('#myInput').focus();
-})
-</script>
   </body>
 </html>
 

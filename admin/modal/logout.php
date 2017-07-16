@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_unset();
-header("Location: http://localhost/InterNews/admin/");
+header("Location: http://localhost/admin/");
 exit();
 
 ?>

@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['USER'])){
-header("Location: http://localhost/InterNews/admin/Dashboard");
+header("Location: http://localhost/admin/Dashboard");
     exit();
 }else{
     session_unset();
@@ -78,7 +78,7 @@ if(user.value == null || user.value == "" || pass.value == null || pass.value ==
                   
                    if( xmlhttp.responseText == 'Success'){
                      
-                                              window.location = "http://localhost/InterNews/admin/Dashboard";
+                                              window.location = "http://localhost/admin/Dashboard";
 
                    }else{
                     document.getElementById("txtHint").innerHTML = '<div class="alert alert-danger" role="alert">Contrese&ntildea o Usuario Incorrectos</div>';

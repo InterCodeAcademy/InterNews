@@ -65,7 +65,7 @@ function getNews(){
             foreach ($jsonIterator as $key => $val) {
                 if($key == "img"){
         
-                        array_push($singleArticle ,"model/Descriptions/thumb/$val");
+                        array_push($singleArticle ,"model/Noticias/img/$val");
                 
                 }else{
                         array_push($singleArticle,$val);
